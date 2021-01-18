@@ -6,9 +6,16 @@
 </head>
 <body>
 <h1>Welcome Page</h1>
-<p>Welcome to Spring Security</p>
+<!--<p>Welcome to Spring Security</p>-->
+<span sec:authentication="name">Username</span>
+<span sec:authentication="principal.authorities">Roles</span>
+<div sec:authorize="isAuthenticated()">
+    Welcome <b><span sec:authentication="name">Username</span></b>
+    &nbsp;
+    <i><span sec:authentication="principal.authorities">Roles</span></i>
+</div>
 <form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
+    <input type="submit" value="Logout"/>
 </form>
 </body>
 </html>
